@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shubham Sharma - Business Analyst & Data Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --border-color: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(59, 130, 246, 0.02) 100%);
+            clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero-text .description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.875rem 1.75rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 350px;
+            height: 350px;
+            border-radius: 16px;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 3rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+            background: var(--bg-secondary);
+            padding: 3rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .about-image-wrapper {
+            text-align: center;
+        }
+
+        .about-profile-img {
+            width: 280px;
+            height: 280px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
+        }
+
+        .about-text h3 {
+            font-size: 1.75rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .skill-category h3 {
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category h3 i {
+            color: var(--primary-color);
+        }
+
+        .skill-item {
+            margin-bottom: 1.25rem;
+        }
+
+        .skill-item span {
+            display: block;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 4px;
+            transition: width 1.5s ease;
+        }
+
+        /* Projects Section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 12px 32px rgba(37, 99, 235, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .project-image {
+            height: 180px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: white;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .project-content p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: white;
+            padding: 0.4rem 0.875rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            border: 1px solid var(--border-color);
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .project-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            padding-bottom: 3rem;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+            border-left: 2px solid transparent;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--border-color);
+        }
+
+        .timeline-content {
+            background: var(--bg-secondary);
+            padding: 1.75rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            padding: 0.375rem 0.875rem;
+            background: var(--primary-color);
+            border-radius: 6px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-content h3 {
+            color: var(--text-primary);
+            font-size: 1.35rem;
+            margin-bottom: 0.375rem;
+            font-weight: 600;
+        }
+
+        .timeline-company {
+            color: var(--primary-color);
+            font-size: 1.05rem;
+            margin-bottom: 0.875rem;
+            font-weight: 500;
+        }
+
+        .timeline-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .timeline-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .timeline-skill-tag {
+            background: white;
+            padding: 0.375rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Certificates */
+        .certificates-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .certificate-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .certificate-card:hover {
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .certificate-icon {
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .certificate-content {
+            padding: 1.75rem;
+            position: relative;
+        }
+
+        .certificate-badge {
+            position: absolute;
+            top: -12px;
+            right: 1.5rem;
+            background: var(--primary-color);
+            padding: 0.375rem 0.875rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .certificate-content h3 {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .certificate-issuer {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 0.375rem;
+        }
+
+        .certificate-date {
+            color: var(--primary-color);
+            font-size: 0.875rem;
+            margin-bottom: 0.875rem;
+            font-weight: 500;
+        }
+
+        .certificate-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+            font-size: 0.9rem;
+        }
+
+        .certificate-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .certificate-link:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            background: var(--bg-secondary);
+            padding: 3rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-content p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.2);
+        }
+
+        .social-link i {
+            font-size: 1.25rem;
+        }
+
+        /* Scroll to top */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.75rem;
+            }
+
+            .profile-img {
+                width: 280px;
+                height: 280px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-profile-img {
+                width: 240px;
+                height: 240px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section {
+                padding: 3rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Smooth animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">Shubham Sharma</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Shubham Sharma</h1>
+                <p class="subtitle">Business Analyst & Data Engineer</p>
+                <p class="description">
+                    I specialize in designing scalable data architectures and intelligent analytics solutions that bridge business strategy with technology. Leveraging AWS, Python, SQL, and modern machine learning frameworks, I transform raw data into actionable insights that empower smarter decisions and operational efficiency.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-code"></i> View My Work
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Get In Touch
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzUwIiBoZWlnaHQ9IjM1MCIgdmlld0JveD0iMCAwIDM1MCAzNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzNTAiIGhlaWdodD0iMzUwIiByeD0iMTYiIGZpbGw9InVybCgjZ3JhZCkiLz4KPHN0eWxlPgpAdHlwZSB0ZXh0L2Nzczs8IVtDREFUQVsuY2xzLTF7ZmlsbDojZmZmO2ZvbnQtc2l6ZTo5MHB4O2ZvbnQtZmFtaWx5OkFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmO2ZvbnQtd2VpZ2h0OjcwMH1dXT48L3N0eWxlPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzI1NjNlYjtzdG9wLW9wYWNpdHk6MSIgLz4KPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojM2I4MmY2O3N0b3Atb3BhY2l0eToxIiAvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+Cjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBjbGFzcz0iY2xzLTEiPlNTPC90ZXh0Pgo8L3N2Zz4=" alt="Shubham Sharma" class="profile-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section fade-in">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-image-wrapper">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgwIiBoZWlnaHQ9IjI4MCIgdmlld0JveD0iMCAwIDI4MCAyODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyODAiIGhlaWdodD0iMjgwIiByeD0iMTIiIGZpbGw9InVybCgjZ3JhZDIpIi8+CjxzdHlsZT4KQHR5cGUgdGV4dC9jc3M7PCFbQ0RBVEFbLmNscy0xe2ZpbGw6I2ZmZjtmb250LXNpemU6NzBweDtmb250LWZhbWlseTpBcmlhbCxIZWx2ZXRpY2Esc2Fucy1zZXJpZjtmb250LXdlaWdodDo3MDB9XV0+PC9zdHlsZT4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZDIiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMjU2M2ViO3N0b3Atb3BhY2l0eToxIiAvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiMzYjgyZjY7c3RvcC1vcGFjaXR5OjEiIC8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPHRleHQgeD0iNTAlIiB5PSI1MCUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGNsYXNzPSJjbHMtMSI+U1M8L3RleHQ+Cjwvc3ZnPg==" alt="Profile" class="about-profile-img">
+            </div>
+            <div class="about-text">
+                <h3>Business Analyst & Data Engineer</h3>
+                <p>
+                    I am passionate about transforming complex data into meaningful insights and intelligent applications that drive smarter business decisions. 
+                    With a strong foundation in both analytics and engineering, I bridge the gap between IT, Finance, and Operations teams through data-driven innovation.
+                <p>
+                Certified in <strong>AWS Cloud Practitioner</strong>,<strong>AWS Data Engineer </strong>  and <strong>Microsoft Essential Business Analysis</strong>, I bring a blend of technical expertise and business acumen to every project. 
+                 My toolkit spans across <strong>AWS (S3, Glue, Athena)</strong>, the <strong>Python ecosystem</strong> (Pandas, Scikit-learn, XGBoost), and visualization tools like 
+                 <strong>Power BI</strong>, <strong>Tableau</strong> and <strong>Streamlit</strong> — enabling me to design solutions that are both scalable and insight-rich.    
+                </p>
+                <p>
+                  From building cloud-native ETL pipelines for <strong>OSHA data processing</strong> to developing explainable <strong>ML models with SHAP</strong> for healthcare risk analytics, 
+                     and predictive systems for <strong>housing market forecasting</strong>, I focus on creating production-ready solutions that make data accessible, actionable, and impactful.
+                </p>
+                <p>
+                     I thrive at the intersection of technology and business — turning raw data into a story that inspires action, drives growth, and powers innovation.
+                </p>
+                <div class="cta-buttons" style="margin-top: 1.5rem; justify-content: flex-start;">
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section fade-in">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3><i class="fas fa-database"></i> Data Engineering</h3>
+                <div class="skill-item">
+                    <span>Python (Pandas, NumPy)</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 92%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span>AWS (Redshift, S3, Lambda, Glue, Athena, Quicksight)</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span>PySpark, Airflow & ETL Pipelines</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span>SQL, MySQL, PostgreSQL & NoSQL</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 88%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-brain"></i> Machine Learning</h3>
+                <div class="skill-item">
+                    <span>Tensorflow, Scikit-learn & XGBoost</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span>Feature Engineering</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span>Model Explainability (SHAP)</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 82%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span>Predictive Analytics</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 87%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-chart-line"></i> Visualization & Analytics</h3>
+                <div class="skill-item">
+                    <span>Power BI</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 88%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span>Streamlit , Matplotlib , Seaborn </span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span>Tableau</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span>Microsoft Excel</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 92%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Development & Tools</h3>
+                <div class="skill-item">
+                    <span>Git & GitHub</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span>Docker & Containerization</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span>JavaScript & React</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span>Rest API</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 78%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3><i class="fas fa-project-diagram"></i>Project Management</h3>
+                <div class="skill-item">
+                    <span> Jira </span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                  <div class="skill-item">
+                    <span> Micrpsoft Office 365 </span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                  <div class="skill-item">
+                    <span> ERP </span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                  <div class="skill-item">
+                    <span> Lucid chart & Visio </span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+            </div> 
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-tasks"></i>Soft Skills</h3>
+                <div class="skill-item">
+                    <span> Cross-Functional Collaboration </span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                  <div class="skill-item">
+                    <span> Analytical Thinking</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                  <div class="skill-item">
+                    <span>Presentation and Storytelling</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                  <div class="skill-item">
+                    <span> Problem-Solving & Attention to detail </span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section fade-in">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">JAN 2024 - DEC 2024</span>
+                    <h3>Data Assistant / IT Support</h3>
+                    <p class="timeline-company">University of Bridgeport</p>
+                    <p class="timeline-description">
+                        Documented and analyzed business functions across Finance, Operations, and IT departments, identifying process improvement opportunities through system enhancement. 
+                        Maintained data accuracy and integrity using SQL and Excel, performing data validation and quality assurance processes.
+                        Supported 300+ users by troubleshooting system issues, managing ticket lifecycle, and ensuring timely resolution of technical requests.
+                    </p>
+                    <div class="timeline-skills">
+                        <span class="timeline-skill-tag">SQL</span>
+                        <span class="timeline-skill-tag">Power BI</span>
+                        <span class="timeline-skill-tag">IT Support</span>
+                        <span class="timeline-skill-tag">Cross-functional Collaboration</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">OCT 2023 - DEC 2023</span>
+                    <h3>Lab Assistant</h3>
+                    <p class="timeline-company">University of Bridgeport</p>
+                    <p class="timeline-description">
+                        Maintained operational readiness of 100+ lab computers, printers, and peripheral devices.
+                        Installed and configured LAN connections, fixed ports, and ensured reliable internet connectivity across multiple labs.
+                        Performed PC imaging, OS updates, and application installations to standardize lab environments.
+                    </p>
+                    <div class="timeline-skills">
+                        <span class="timeline-skill-tag">IT Support</span>
+                        <span class="timeline-skill-tag">Hardware Support</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">Dec 2022 - AUG 2023</span>
+                    <h3>Data Engineer</h3>
+                    <p class="timeline-company">M&M Enterprise</p>
+                    <p class="timeline-description">
+                        Developed scalable ETL/ELT pipelines in PySpark on Databricks, transforming large volumes of transactional and customer onboarding data into Snowflake-based data marts and dimensional models.
+                        Built and orchestrated Airflow DAGs to automate ingestion workflows from REST APIs, JSON files and batch files stored on AWS S3, achieving an 80%+ job success rate.
+                    </p>
+                    <div class="timeline-skills">
+                        <span class="timeline-skill-tag">AWS</span>
+                        <span class="timeline-skill-tag">Python</span>
+                        <span class="timeline-skill-tag">ETL/ELT</span>
+                        <span class="timeline-skill-tag">Airflow</span>
+                        <span class="timeline-skill-tag">CI/CD</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">May 2021 - JUL 2022</span>
+                    <h3>Business Data Analyst</h3>
+                    <p class="timeline-company">StarRays</p>
+                    <p class="timeline-description">
+                        Led end-to-end requirements gathering and UAT execution across cross-functional teams using Jira and Confluence, transforming ambiguous stakeholder input into actionable User Stories with clear success metrics.
+                        Optimized SAP MM/SD operations and data extraction processes to streamline customer order processing and service requests.
+                        Engineered automated ETL workflows and analytics solutions by leveraging Power Automate, SQL, Snowflake, and Power BI to process large-scale manufacturing data, reducing manual reporting time by 40%.
+                    </p>
+                    <div class="timeline-skills">
+                        <span class="timeline-skill-tag">Power BI</span>
+                        <span class="timeline-skill-tag">Excel</span>
+                        <span class="timeline-skill-tag">UAT</span>
+                        <span class="timeline-skill-tag">SAP</span>
+                        <span class="timeline-skill-tag">Cross-functional</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section fade-in">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-container">
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <div class="project-content">
+                    <h3>🏥 Patient Risk Analytics Platform</h3>
+                    <p>
+                        Industry-level, end-to-end data analytics project for identifying and monitoring patient health risks. 
+                        Features complete analytics lifecycle from data engineering to interactive dashboards, with predictive modeling 
+                        using XGBoost and explainability through SHAP values.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">XGBoost</span>
+                        <span class="tech-tag">SHAP</span>
+                        <span class="tech-tag">Power BI</span>
+                        <span class="tech-tag">Streamlit</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/shubhamssg10/Patient-Risk-Analytics" target="_blank">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <div class="project-content">
+                    <h3>⚡ OSHA ETL Pipeline (AWS)</h3>
+                    <p>
+                        Complete ETL pipeline for OSHA ITA data using AWS cloud services. Extracts raw Excel files, 
+                        transforms and cleans data, converts to Parquet format, partitions for efficiency, and enables 
+                        SQL analytics via Athena. Production-ready cloud architecture.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">AWS S3</span>
+                        <span class="tech-tag">AWS Glue</span>
+                        <span class="tech-tag">Athena</span>
+                        <span class="tech-tag">PySpark</span>
+                        <span class="tech-tag">Parquet</span>
+                        <span class="tech-tag">IAM</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/shubhamssg10/osha-etl-pipeline" target="_blank">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="project-content">
+                    <h3>🏠 USA Housing Price Prediction</h3>
+                    <p>
+                        Comprehensive data analysis and machine learning project for predicting house prices using regression techniques. 
+                        Features extensive EDA with correlation analysis, data preprocessing, and model evaluation with strong predictive accuracy 
+                        and residual analysis.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Seaborn</span>
+                        <span class="tech-tag">Matplotlib</span>
+                        <span class="tech-tag">Jupyter</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/shubhamssg10/housing-price-prediction" target="_blank">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="section fade-in">
+        <h2 class="section-title">Certifications & Achievements</h2>
+        <div class="certificates-container">
+            <div class="certificate-card">
+                <div class="certificate-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <div class="certificate-content">
+                    <span class="certificate-badge">Verified</span>
+                    <h3>AWS Cloud Practitioner</h3>
+                    <p class="certificate-issuer">Amazon Web Services</p>
+                    <p class="certificate-date">Pursuing</p>
+                    <p class="certificate-description">
+                        Demonstrated AWS concepts and cloud computing fundamentals.
+                    </p>
+                    <a href="https://www.credly.com/badges/fa7f7a88-fba3-404e-972c-5f385083ff97/public_url" class="certificate-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+            </div>
+
+            <div class="certificate-card">
+                <div class="certificate-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <div class="certificate-content">
+                    <span class="certificate-badge">Verified</span>
+                    <h3>Career Essentials in Business Analysis</h3>
+                    <p class="certificate-issuer">Microsoft and LinkedIn</p>
+                    <p class="certificate-date">Issued: June 2025</p>
+                    <p class="certificate-description">
+                        Certified in delivering actionable insights by transforming raw data into 
+                        compelling visuals and reports using Power BI.
+                    </p>
+                    <a href="https://www.linkedin.com/learning/certificates/08de016c1c86d7c4763f13462d55362addd10b693aea9525c0de45f31fad6dc1" target="_blank" class="certificate-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+            </div>
+
+            <div class="certificate-card">
+                <div class="certificate-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <div class="certificate-content">
+                    <span class="certificate-badge">Verified</span>
+                    <h3>SQL Advanced</h3>
+                    <p class="certificate-issuer">HackerRank</p>
+                    <p class="certificate-date">Issued: May 2025</p>
+                    <p class="certificate-description">
+                        Completed comprehensive specialization covering all SQL concepts.
+                    </p>
+                    <a href="https://www.hackerrank.com/certificates/ad1c154a8a67" target="_blank" class="certificate-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+            </div>
+
+            <div class="certificate-card">
+                <div class="certificate-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="certificate-content">
+                    <span class="certificate-badge">Verified</span>
+                    <h3>AWS Educate Introduction to Generative AI</h3>
+                    <p class="certificate-issuer">Amazon Web Services (AWS)</p>
+                    <p class="certificate-date">Issued: May 2025</p>
+                    <p class="certificate-description">
+                        Foundational understanding of generative AI, its applications, and responsible use.
+                    </p>
+                    <a href="https://www.credly.com/badges/47e95f34-81a4-4b90-bafc-93cfa0a5b63d/linked_in_profile" target="_blank" class="certificate-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+            </div>
+
+            <div class="certificate-card">
+                <div class="certificate-icon">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <div class="certificate-content">
+                    <span class="certificate-badge">Verified</span>
+                    <h3>ServiceNow IT Leadership Professional Certificate</h3>
+                    <p class="certificate-issuer">ServiceNow</p>
+                    <p class="certificate-date">Issued: Sep 2025</p>
+                    <p class="certificate-description">
+                        Completed intensive training in IT architectures for IT Project & Program Management.
+                    </p>
+                    <a href="https://www.linkedin.com/learning/certificates/dfa0121ae6d21a7869a78b041a5cd41f463157a37a0b5f9b057f3036afe08338" target="_blank" class="certificate-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+            </div>
+
+            <div class="certificate-card">
+                <div class="certificate-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <div class="certificate-content">
+                    <span class="certificate-badge">In Progress</span>
+                    <h3>AWS Data Engineer</h3>
+                    <p class="certificate-issuer">Amazon Web Services (AWS)</p>
+                    <p class="certificate-date">Pursuing</p>
+                    <p class="certificate-description">
+                        Certified in building scalable data processing applications using AWS
+                        and PySpark for big data analytics.
+                    </p>
+                    <a href="#" class="certificate-link">
+                        <i class="fas fa-external-link-alt"></i> View Certificate
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section fade-in">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+            <p>
+                I'm always interested in discussing new opportunities, innovative data projects, and collaborative ventures. 
+                Whether you're looking for a skilled data engineer or want to explore cutting-edge analytics solutions, let's connect!
+            </p>
+            <div class="contact-info">
+                <a href="mailto:shub.ssg10@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.25rem;">Email</div>
+                        <div style="font-size: 0.9rem;">shub.ssg10@gmail.com</div>
+                    </div>
+                </a>
+                <a href="tel:+18483368077" class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.25rem;">Phone</div>
+                        <div style="font-size: 0.9rem;">+1 (848) 336-8077</div>
+                    </div>
+                </a>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 0.25rem;">Location</div>
+                        <div style="font-size: 0.9rem;">Bridgeport CT, USA</div>
+                    </div>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/shubham-sharma-s10/" target="_blank" class="social-link" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/shubhamssg10" target="_blank" class="social-link" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="cta-buttons" style="margin-top: 2rem;">
+                <a href="mailto:shub.ssg10@gmail.com" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    <i class="fas fa-calendar-alt"></i> Schedule Call
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Scroll to top functionality
+        const scrollTop = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        scrollTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animate skill bars when visible
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-progress');
+                    skillBars.forEach((bar, index) => {
+                        setTimeout(() => {
+                            const width = bar.style.width;
+                            bar.style.width = '0%';
+                            setTimeout(() => {
+                                bar.style.width = width;
+                            }, 100);
+                        }, index * 100);
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.skill-category').forEach(category => {
+            skillObserver.observe(category);
+        });
+    </script>
+</body>
+</html>
